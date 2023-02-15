@@ -9,18 +9,18 @@ function number() {
 }
 
 DOM.rock.onclick = function () {
-  number(item);
   let pick = "rock";
+  number(item);
   dolose(pick);
 };
 DOM.paper.onclick = function () {
-  number(item);
   let pick = "paper";
+  number(item);
   dolose(pick);
 };
 DOM.scissors.onclick = function () {
-  number(item);
   let pick = "scissors";
+  number(item);
   dolose(pick);
 };
 
