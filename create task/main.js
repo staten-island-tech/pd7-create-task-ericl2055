@@ -30,21 +30,21 @@ const dolose = (pick) => {
       console.log("draw");
       break;
     case pick == "rock" && random == "paper":
-      console.log("lose");
+      console.log("You lost against paper");
       break;
     case pick == "rock" && random == "scissors":
-      console.log("win");
+      console.log("You won against scissors");
       break;
     case pick == "paper" && random == "rock":
-      console.log("win");
+      console.log("You won against rock");
       break;
     case pick == "paper" && random == "scissors":
-      console.log("lose");
+      console.log("You lost against scissors");
       break;
     case pick == "scissors" && random == "rock":
-      console.log("lose");
+      console.log("You lost against rock");
       break;
     case pick == "scissors" && random == "paper":
-      console.log("win");
+      console.log("You won against paper");
   }
 };
