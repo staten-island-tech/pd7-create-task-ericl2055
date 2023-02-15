@@ -1,23 +1,50 @@
 import { DOM } from "./DOM";
 
-function random(item) {
-  if (item[Math.floor(Math.random() * item.length)] === 0) {
-    console.log("rock");
-  }
-  if (item[Math.floor(Math.random() * item.length)] === 1) {
-    console.log("paper");
-  }
-  if (item[Math.floor(Math.random() * item.length)] === 2) {
-    console.log("scissors");
-  }
+const item = ["rock", "paper", "scissors"];
+let random;
+
+function number() {
+  random = item[Math.floor(Math.random() * item.length)];
+  dolose(random);
 }
-const item = [0, 1, 2];
+
 DOM.rock.onclick = function () {
-  if (outcome === "scissors") {
-    console.log("You won against scissors");
-  } else {
-    console.log("you lost against scissors");
+  number(item);
+  let pick = "rock";
+  dolose(pick);
+};
+DOM.paper.onclick = function () {
+  number(item);
+  let pick = "paper";
+  dolose(pick);
+};
+DOM.scissors.onclick = function () {
+  number(item);
+  let pick = "scissors";
+  dolose(pick);
+};
+
+const dolose = (pick) => {
+  switch (pick) {
+    case pick == random:
+      console.log("draw");
+      break;
+    case pick == "rock" && random == "paper":
+      console.log("lose");
+      break;
+    case pick == "rock" && random == "scissors":
+      console.log("win");
+      break;
+    case pick == "paper" && random == "rock":
+      console.log("win");
+      break;
+    case pick == "paper" && random == "scissors":
+      console.log("lose");
+      break;
+    case pick == "scissors" && random == "rock":
+      console.log("lose");
+      break;
+    case pick == "scissors" && random == "paper":
+      console.log("win");
   }
 };
-console.log(DOM.rock);
-random(item);
