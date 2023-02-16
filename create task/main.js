@@ -5,7 +5,6 @@ let random;
 
 function number() {
   random = item[Math.floor(Math.random() * item.length)];
-  dolose(random);
 }
 
 DOM.rock.onclick = function () {
@@ -25,7 +24,7 @@ DOM.scissors.onclick = function () {
 };
 
 const dolose = (pick) => {
-  switch (pick) {
+  switch (true) {
     case pick == random:
       console.log("draw");
       break;
