@@ -26,65 +26,114 @@ DOM.scissors.onclick = function () {
 const dolose = (pick) => {
   switch (true) {
     case pick == random:
-      console.log("draw");
+      removebutton();
       remove();
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You drawed against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You drawed against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
       break;
     case pick == "rock" && random == "paper":
-      console.log("You lost against paper");
+      removebutton();
       remove();
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You lost against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You lost against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
       break;
     case pick == "rock" && random == "scissors":
-      console.log("You won against scissors");
+      removebutton();
       remove();
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You won against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You won against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
       break;
     case pick == "paper" && random == "rock":
-      console.log("You won against rock");
+      removebutton();
       remove();
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You won against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You won against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
       break;
     case pick == "paper" && random == "scissors":
-      console.log("You lost against scissors");
+      removebutton();
       remove();
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You lost against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You lost against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
       break;
     case pick == "scissors" && random == "rock":
-      console.log("You lost against rock");
+      removebutton();
       remove();
+      ``;
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You lost against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You lost against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
       break;
     case pick == "scissors" && random == "paper":
-      console.log("You won against paper");
-      remove();
+      remove("button");
+      remove("#outcome");
       DOM.outcome.insertAdjacentHTML(
         "afterend",
-        `<div id ="outcome"><h3>You won against ${random}</h3></div>`
+        `<div id ="outcome"><h3>You won against ${random}</h3><button id="restart">restart</button></div>`
       );
+      addbutton();
   }
 };
-function remove() {
-  let outcome = document.querySelectorAll("#outcome");
+function remove(item) {
+  let outcome = document.querySelectorAll(item);
   outcome.forEach((outcome) => {
     outcome.remove();
+  });
+}
+
+function removebutton() {
+  let button = document.querySelectorAll("button");
+  button.forEach((button) => {
+    button.remove();
+  });
+}
+
+function addbutton() {
+  outcome = document.querySelectorAll("#outcome");
+  outcome.forEach((button) => {
+    button.addEventListener("click", function () {
+      DOM.outcome.insertAdjacentHTML(
+        "afterbegin",
+        ` <button id="rock">
+      rock
+      <img
+      src="https://substackcdn.com/image/fetch/w_1200,h_600,c_limit,f_jpg,q_auto:good,fl_progressive:steep/https%3A%2F%2Fbucketeer-e05bbc84-baa3-437e-9518-adb32be77984.s3.amazonaws.com%2Fpublic%2Fimages%2F3bdb2575-9a92-42f8-8472-bb78c7bd118a_720x405.jpeg"
+      width="300px"
+      draggable="false"
+      /><img />
+      </button>
+      <button id="paper">
+      paper
+      <img
+      src="https://m.economictimes.com/thumb/msid-61941670,width-1200,height-900,resizemode-4,imgsize-25928/better-valuations-of-paper-companies-just-a-matter-of-time.jpg"
+      width="300px"
+      draggable="false"
+      /><img />
+      </button>
+      <button id="scissors">
+      scissors<img
+      src="https://upload.wikimedia.org/wikipedia/commons/9/97/Standard_household_scissors.jpg"
+      width="300px"
+      draggable="false"
+      /><img />
+      </button>`
+      );
+    });
   });
 }
