@@ -34,5 +34,10 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 }
+#app {
+  display: flex;
+  flex-direction: column;
+
+}
 
 

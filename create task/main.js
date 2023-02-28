@@ -23,13 +23,11 @@ DOM.scissors.onclick = function () {
   dolose(pick);
 };
 function work() {
-  console.log("work");
   let rock = document.querySelectorAll("#rocks");
   let paper = document.querySelectorAll("#papers");
   let scissors = document.querySelectorAll("#scissor");
   rock.forEach((button) => {
     button.addEventListener("click", function () {
-      console.log("work");
       let pick = "rock";
       number(item);
       dolose(pick);
